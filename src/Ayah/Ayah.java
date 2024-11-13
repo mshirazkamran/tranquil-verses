@@ -13,12 +13,15 @@ public class Ayah {
         this.location = location;
     }
 
+    public String getAyahText() {
+        return this.text;
+    }
+
 
     @Override
     public String toString() {
-        return "Ayah: " + text 
-        + ",\ntranslation: " + translation 
-        + ",\nlocation: " + location + "\n";
+        return "<html>" + text + ",<br>translation: " + translation 
+        + ",<br>location: " + location + "<br></html>";
     }
 
     

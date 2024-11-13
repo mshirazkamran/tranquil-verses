@@ -10,6 +10,7 @@ import Ayah.AyahForHappy;
 import Ayah.AyahForNeutral;
 import Ayah.AyahForSad;
 
+import java.awt.ComponentOrientation;
 import java.awt.Font;
 import java.util.ArrayList;
 import java.util.Random;
@@ -62,7 +63,8 @@ public class ProgramBuilder {
             }
 
             try {
-                emotion = new Emotion(input);
+                emotion = new Emotion(input.toLowerCase());
+                System.out.println(emotion);
                 ProgramBuilder.GUIbuilder(emotion);
                 
             } catch (EmotionNotFoundException e) {
@@ -80,36 +82,46 @@ public class ProgramBuilder {
 
         JFrame frame = new JFrame("Tranquil Verses");
 
-        frame.setSize(ProgramBuilder.height, ProgramBuilder.width);
+        frame.setSize(650, 400);
         frame.setLocationRelativeTo(null);
 
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     
-        Ayah ToDisplay = null;
+        Ayah ayahToDisplay = null;
 
         switch (emotion.getEmotion()) {
-            case "Sad" -> {
-                ToDisplay = sadAyahs.get(randNum());
+            case "sad" -> {
+                ayahToDisplay = sadAyahs.get(randNum());
             }
-            case "Happy" -> {
-                ToDisplay = happyAyahs.get(randNum());
+            case "happy" -> {
+                ayahToDisplay = happyAyahs.get(randNum());
             }
-            case "Neutral" -> {
-                ToDisplay = neutralAyahs.get(randNum());
+            case "neutral" -> {
+                ayahToDisplay = neutralAyahs.get(randNum());
             }
-            case "Angry" -> {
-                ToDisplay = angryAyahs.get(randNum());
+            case "angry" -> {
+                ayahToDisplay = angryAyahs.get(randNum());
             }
         }
 
         JLabel ayahText = new JLabel();
-
-        ayahText.setText(ToDisplay.toString());
-        ayahText.setFont(new Font("Calibri", Font.BOLD, 22));
-        ayahText.setHorizontalAlignment(SwingConstants.CENTER);
         
+
+        ayahText.setText(ayahToDisplay.toString());
+        ayahText.setFont(new Font("Arial", Font.BOLD, 18));
+        ayahText.setHorizontalAlignment(SwingConstants.CENTER);
+    
+        JLabel ayah = new JLabel();
+
+        
+
+        ayah.setText(ayahToDisplay.getAyahText());
+        ayahText.setFont(new Font("Tahoma", Font.BOLD, 25));
+        ayahText.setHorizontalAlignment(SwingConstants.CENTER);
+        // ayah.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
     
         frame.add(ayahText);
+        // frame.add(ayah);
         frame.setVisible(true);
         // frame.toFront();
         frame.setAlwaysOnTop(true);
@@ -120,7 +132,7 @@ public class ProgramBuilder {
     private static int randNum() {
 
         Random random = new Random();
-        int num = random.nextInt(4);
+        int num = random.nextInt(2);
 
         return num;
     }

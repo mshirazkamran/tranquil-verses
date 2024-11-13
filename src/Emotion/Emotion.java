@@ -6,7 +6,7 @@ public final class Emotion {
 
     private String emotion;
     private static String[] availableEmotions 
-        = {"Happy", "Sad", "Neutral", "Angry"};
+        = {"happy", "sad", "neutral", "angry"};
 
 
     public Emotion(String userEmotion) throws EmotionNotFoundException {
@@ -16,6 +16,7 @@ public final class Emotion {
         for (String emotion : availableEmotions) {
             if (userEmotion.equals(emotion)) {
                 isAvaialbe = true;
+                this.emotion = emotion;
                 break;
             }
         }
@@ -27,7 +28,15 @@ public final class Emotion {
 
 
     public String getEmotion() {
-        return emotion;
+        return this.emotion;
     }
+
+
+    @Override
+    public String toString() {
+        return "Emotion [emotion=" + emotion + "]";
+    }
+
+    
     
 }

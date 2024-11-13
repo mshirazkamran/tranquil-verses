@@ -8,10 +8,12 @@ import java.awt.Font;
 import java.awt.GraphicsEnvironment;
 import java.awt.event.KeyListener;
 
+import Ayah.Ayah;
+
 public class ProgramBuilder {
 
     // Ayah ayah
-    public static void runProgram()  {
+    public static void runProgram(Ayah ayah)  {
         
         System.out.println("Hello, World!");
 

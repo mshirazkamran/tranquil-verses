@@ -3,16 +3,16 @@ package ProgramBuilder;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
-import javax.swing.SwingContainer;
+
+import Ayah.AyahForAngry;
+import Ayah.AyahForHappy;
+import Ayah.AyahForNeutral;
+import Ayah.AyahForSad;
 
 import java.awt.Font;
-import java.awt.GraphicsEnvironment;
-import java.awt.event.KeyListener;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
 import java.util.Scanner;
 
-import Ayah.Ayah;
 import Emotion.Emotion;
 import Exceptions.EmotionNotFoundException;
 
@@ -21,9 +21,20 @@ public class ProgramBuilder {
     private static final int height = 400;
     private static final int width = 400;
     private static final Scanner scan = new Scanner(System.in);
+
+    private static final ArrayList<AyahForSad> sadAyahs 
+        = AyahForSad.loadAyahsForSadFromFile();
+
+    private static final ArrayList<AyahForHappy> happyAyahs 
+        = AyahForHappy.loadAyahsForHappyfromFile();
+
+    private static final ArrayList<AyahForNeutral> neutralAyahs 
+        = AyahForNeutral.loadAyahsForNeutralFromFile();
+
+    private static final ArrayList<AyahForAngry> angryAyahs 
+        = AyahForAngry.loadAyahsForAngryFromFile();
     
 
-    // Ayah ayah
     public static void runProgram() throws InterruptedException {
 
         System.out.println("\t\t\t//////////////////////////");
@@ -58,7 +69,6 @@ public class ProgramBuilder {
             }
 
             ProgramBuilder.GUIbuilder(emotion);
-
         }
     }
 
@@ -72,10 +82,6 @@ public class ProgramBuilder {
         frame.setLocationRelativeTo(null);
 
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-
-        // JLabel label = new JLabel("shiraz kamiran");
-        // label.setFont(new Font("JetBrains Mono Medium", Font.PLAIN, 22));
-        // label.setHorizontalAlignment(SwingConstants.CENTER  + 10);
     
         JLabel ayahText = new JLabel("demo text");
 

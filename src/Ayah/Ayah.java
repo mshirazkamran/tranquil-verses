@@ -2,11 +2,11 @@ package Ayah;
 
 public class Ayah {
     
-    private String text;
+    private final String text;
     private String translation;
-    private String location; // location of ayah
+    private final String location; // location of ayah
 
-    public Ayah(String text, String translation, String location) {
+    protected Ayah(String text, String translation, String location) {
         this.text = text;
         this.translation = translation;
         this.location = location;

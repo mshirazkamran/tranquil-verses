@@ -2,18 +2,19 @@ package Ayah;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.List;
 
-public class AyahForAngry extends Ayah {
+import Utils.DataUtils;
+
+public final class AyahForAngry extends Ayah {
     
 	private String tip;
 	private static final String filepath = "./src/Utils/AyahStorage/AyahForAngry.txt";
 
 	public AyahForAngry (String text, String translation, String location) {
         super(text, translation, location);
-        //TODO: add tip from data utils
-        
+        this.tip = DataUtils.getRandomTip();        
     }
 
 
@@ -23,16 +24,13 @@ public class AyahForAngry extends Ayah {
         String.format("tip: %s%n", this.tip);
     }
 
-    // TODO: add a method that reads from the filepath and parses
-    // it then sends it to the progam builder
-
 
     public static ArrayList<AyahForAngry> loadAyahsForAngryFromFile() {
 
         ArrayList<AyahForAngry> ayahs = new ArrayList<>();
 
         try {
-            BufferedReader reader = new BufferedReader(new FileReader(filepath));
+            BufferedReader reader = new BufferedReader(new FileReader(filepath, StandardCharsets.UTF_8));
             ArrayList<String> data = new ArrayList<>();
             String line;
 

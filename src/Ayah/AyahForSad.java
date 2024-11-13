@@ -1,8 +1,8 @@
 package Ayah;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,16 +25,14 @@ public final class AyahForSad extends Ayah {
             String.format("emoji: <html> %s </html>%n", this.emoji);
     }
 
-    // TODO: add a method that reads from the filepath and parses
-    // it then sends it to the progam builder
-
+   
 
     public static ArrayList<AyahForSad> loadAyahsForSadFromFile() {
 
         ArrayList<AyahForSad> ayahs = new ArrayList<>();
 
         try {
-            BufferedReader reader = new BufferedReader(new FileReader(filepath));
+            BufferedReader reader = new BufferedReader(new FileReader(filepath, StandardCharsets.UTF_8));
             List<String> data = new ArrayList<>();
             String line;
 

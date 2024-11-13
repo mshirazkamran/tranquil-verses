@@ -3,17 +3,20 @@ package Ayah;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AyahForHappy extends Ayah {
+import Utils.DataUtils;
+
+public final class AyahForHappy extends Ayah {
     
     private String quranicFact;
     private static final String filepath = "./src/Utils/AyahStorage/AyahForHappy.txt";
 
     public AyahForHappy (String text, String translation, String location) {
         super(text, translation, location);
-        //TODO: add quranic fact from data utils
+        this.quranicFact = DataUtils.getRandomQuranicFact();
     }
 
 
@@ -24,16 +27,12 @@ public class AyahForHappy extends Ayah {
     }
 
 
-    // TODO: add a method that reads from the filepath and parses
-    // it then sends it to the progam builder
-
-
     public static ArrayList<AyahForHappy> loadAyahsForHappyfromFile() {
 
         ArrayList<AyahForHappy> ayahs = new ArrayList<>();
 
         try {
-            BufferedReader reader = new BufferedReader(new FileReader(filepath));
+            BufferedReader reader = new BufferedReader(new FileReader(filepath, StandardCharsets.UTF_8));
             List<String> data = new ArrayList<>();
             String line;
 

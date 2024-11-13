@@ -1,5 +1,3 @@
-package ProgramBuilder;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
@@ -10,8 +8,8 @@ import Ayah.AyahForHappy;
 import Ayah.AyahForNeutral;
 import Ayah.AyahForSad;
 
-import java.awt.ComponentOrientation;
 import java.awt.Font;
+
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -21,9 +19,6 @@ import Exceptions.EmotionNotFoundException;
 
 public class ProgramBuilder {
 
-    private static final int height = 400;
-    private static final int width = 400;
-    private static final Scanner scan = new Scanner(System.in);
 
     private static final ArrayList<AyahForSad> sadAyahs 
         = AyahForSad.loadAyahsForSadFromFile();
@@ -40,9 +35,11 @@ public class ProgramBuilder {
 
     public static void runProgram() throws InterruptedException {
 
-        System.out.println("\t\t\t//////////////////////////");
-        System.out.println("\t\t\tWelcome to Tanquil Verses");
-        System.out.println("\t\t\t//////////////////////////\n");
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("\t\t\t\t\u001B[36m/////////////////////////\u001B[0m");
+        System.out.println("\t\t\t\t\u001B[32mWelcome to Tanquil Verses\u001B[0m");
+        System.out.println("\t\t\t\t\u001B[36m/////////////////////////\u001B[0m\n");
 
         while (true) {
 
@@ -58,20 +55,19 @@ public class ProgramBuilder {
             Emotion emotion;
             String input = scan.nextLine();
 
+            // exit the program
             if (input.equals("exit")) {
                 System.exit(1);
             }
 
             try {
                 emotion = new Emotion(input.toLowerCase());
-                System.out.println(emotion);
                 ProgramBuilder.GUIbuilder(emotion);
                 
             } catch (EmotionNotFoundException e) {
                 
                 System.out.println("Please add available emotions!");
-                Thread.currentThread().sleep(1400);
-                continue;
+                Thread.currentThread().sleep(1400);  // to show a little pause to the user
             }
         }
     }
@@ -80,13 +76,6 @@ public class ProgramBuilder {
     private static void GUIbuilder(Emotion emotion) {
 
 
-        JFrame frame = new JFrame("Tranquil Verses");
-
-        frame.setSize(650, 400);
-        frame.setLocationRelativeTo(null);
-
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    
         Ayah ayahToDisplay = null;
 
         switch (emotion.getEmotion()) {
@@ -104,36 +93,30 @@ public class ProgramBuilder {
             }
         }
 
+        JFrame frame = new JFrame("Tranquil Verses");
+
+        frame.setSize(650, 400);
+        frame.setLocationRelativeTo(null);
+
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
         JLabel ayahText = new JLabel();
-        
 
         ayahText.setText(ayahToDisplay.toString());
-        ayahText.setFont(new Font("Arial", Font.BOLD, 18));
+        ayahText.setFont(new Font("Arial", Font.BOLD, 22));
         ayahText.setHorizontalAlignment(SwingConstants.CENTER);
-    
-        JLabel ayah = new JLabel();
 
-        
-
-        ayah.setText(ayahToDisplay.getAyahText());
-        ayahText.setFont(new Font("Tahoma", Font.BOLD, 25));
-        ayahText.setHorizontalAlignment(SwingConstants.CENTER);
-        // ayah.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
     
         frame.add(ayahText);
-        // frame.add(ayah);
         frame.setVisible(true);
-        // frame.toFront();
         frame.setAlwaysOnTop(true);
-    
     }
 
 
     private static int randNum() {
 
         Random random = new Random();
-        int num = random.nextInt(2);
-
+        int num = random.nextInt(4);
         return num;
     }
 

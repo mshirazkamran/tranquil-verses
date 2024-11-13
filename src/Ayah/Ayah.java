@@ -18,6 +18,8 @@ public class Ayah {
     }
 
 
+    // used html tages here because java GUI needs these tags to 
+    // display the newlines, note that <br> === \n
     @Override
     public String toString() {
         return "<html>" + text + ",<br>translation: " + translation 

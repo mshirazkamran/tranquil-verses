@@ -24,5 +24,10 @@ public final class Emotion {
             throw new EmotionNotFoundException("Emotion is not available!");
         }
     }
+
+
+    public String getEmotion() {
+        return emotion;
+    }
     
 }

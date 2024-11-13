@@ -33,7 +33,7 @@ public class AyahForAngry extends Ayah {
 
         try {
             BufferedReader reader = new BufferedReader(new FileReader(filepath));
-            List<String> data = new ArrayList<>();
+            ArrayList<String> data = new ArrayList<>();
             String line;
 
             while ((line = reader.readLine()) != null) {

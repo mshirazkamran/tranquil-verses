@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
+import Ayah.Ayah;
 import Ayah.AyahForAngry;
 import Ayah.AyahForHappy;
 import Ayah.AyahForNeutral;
@@ -46,10 +47,10 @@ public class ProgramBuilder {
 
             System.out.println("""
             Please enter your mood: 
-            Happy
-            Sad
-            Neutral
-            Angry
+                Happy
+                Sad
+                Neutral
+                Angry
             (exit) to quit the program!
             """);
 
@@ -62,14 +63,14 @@ public class ProgramBuilder {
 
             try {
                 emotion = new Emotion(input);
+                ProgramBuilder.GUIbuilder(emotion);
+                
             } catch (EmotionNotFoundException e) {
                 
                 System.out.println("Please add available emotions!");
                 Thread.currentThread().sleep(1400);
                 continue;
             }
-
-            ProgramBuilder.GUIbuilder(emotion);
         }
     }
 
@@ -84,10 +85,26 @@ public class ProgramBuilder {
 
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     
-        
+        Ayah ToDisplay = null;
+
+        switch (emotion.getEmotion()) {
+            case "Sad" -> {
+                ToDisplay = sadAyahs.get(randNum());
+            }
+            case "Happy" -> {
+                ToDisplay = happyAyahs.get(randNum());
+            }
+            case "Neutral" -> {
+                ToDisplay = neutralAyahs.get(randNum());
+            }
+            case "Angry" -> {
+                ToDisplay = angryAyahs.get(randNum());
+            }
+        }
 
         JLabel ayahText = new JLabel();
 
+        ayahText.setText(ToDisplay.toString());
         ayahText.setFont(new Font("Calibri", Font.BOLD, 22));
         ayahText.setHorizontalAlignment(SwingConstants.CENTER);
         

@@ -6,9 +6,11 @@ import javax.swing.SwingConstants;
 
 import java.awt.Font;
 import java.awt.GraphicsEnvironment;
+import java.awt.event.KeyListener;
 
 public class ProgramBuilder {
 
+    // Ayah ayah
     public static void runProgram()  {
         
         System.out.println("Hello, World!");
@@ -24,7 +26,7 @@ public class ProgramBuilder {
         // label.setFont(new Font("JetBrains Mono Medium", Font.PLAIN, 22));
         // label.setHorizontalAlignment(SwingConstants.CENTER  + 10);
     
-        JLabel arabicText = new JLabel("إِذَا ٱلشَّمْسُ كُوِّرَتْ");
+        JLabel arabicText = new JLabel(ayah.toString());
         arabicText.setFont(new Font("Calibri", Font.BOLD, 22));
         arabicText.setHorizontalAlignment(SwingConstants.CENTER);
         

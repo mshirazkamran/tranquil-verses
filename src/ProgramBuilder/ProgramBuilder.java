@@ -21,8 +21,7 @@ public class ProgramBuilder {
     private static final int height = 400;
     private static final int width = 400;
     private static final Scanner scan = new Scanner(System.in);
-    private static final String[] emotions
-        = {"Happy", "Sad", "Neutral", "Angry"};
+    
 
     // Ayah ayah
     public static void runProgram() throws InterruptedException {
@@ -58,13 +57,13 @@ public class ProgramBuilder {
                 continue;
             }
 
-            ProgramBuilder.buildGUI(emotion);
+            ProgramBuilder.GUIbuilder(emotion);
 
         }
     }
 
 
-    private static void buildGUI(Emotion emotion) {
+    private static void GUIbuilder(Emotion emotion) {
 
 
         JFrame frame = new JFrame("Tranquil Verses");

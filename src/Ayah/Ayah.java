@@ -6,6 +6,7 @@ public class Ayah {
     private String translation;
     private final String location; // location of ayah
 
+    
     protected Ayah(String text, String translation, String location) {
         this.text = text;
         this.translation = translation;

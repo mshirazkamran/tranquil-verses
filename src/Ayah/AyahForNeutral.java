@@ -1,6 +1,9 @@
 package Ayah;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.util.List;
 
 public final class AyahForNeutral extends Ayah {
     
@@ -20,6 +23,16 @@ public final class AyahForNeutral extends Ayah {
 
     // TODO: add a method that reads from the filepath and parses
     // it then sends it to the progam builder
+
+    public List<AyahForNeutral> getAyahsForNuetral() {
+        
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(new File(filepath)));
+            String[] alldata = reader.readLine() 
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+    }
 
 
     

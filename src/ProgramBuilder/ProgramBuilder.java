@@ -11,6 +11,7 @@ import Ayah.AyahForSad;
 
 import java.awt.Font;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 import Emotion.Emotion;
@@ -83,7 +84,9 @@ public class ProgramBuilder {
 
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     
-        JLabel ayahText = new JLabel("demo text");
+        
+
+        JLabel ayahText = new JLabel();
 
         ayahText.setFont(new Font("Calibri", Font.BOLD, 22));
         ayahText.setHorizontalAlignment(SwingConstants.CENTER);
@@ -95,4 +98,14 @@ public class ProgramBuilder {
         frame.setAlwaysOnTop(true);
     
     }
+
+
+    private static int randNum() {
+
+        Random random = new Random();
+        int num = random.nextInt(4);
+
+        return num;
+    }
+
 }

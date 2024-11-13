@@ -54,10 +54,4 @@ public class AyahForHappy extends Ayah {
         return ayahs;
     }
     
-
-    
-    // public static void main(String[] args) {
-	// 	File file = new File(filepath);
-	// 	System.out.println(file.exists());
-	// }
 }

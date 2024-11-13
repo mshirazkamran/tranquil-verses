@@ -52,18 +52,4 @@ public final class AyahForNeutral extends Ayah {
         return ayahs;
     }
         
-
-
-    public static void main(String[] args) {
-
-        
-    }
-
-
-    
-    // public static void main(String[] args) {
-	// 	File file = new File(filepath);
-	// 	System.out.println(file.exists());
-	// }
-
 }

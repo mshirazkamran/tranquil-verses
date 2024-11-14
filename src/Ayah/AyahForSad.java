@@ -22,7 +22,7 @@ public final class AyahForSad extends Ayah {
     @Override
     public String toString() {
         return super.toString() + 
-            String.format("emoji: <html> %s </html>%n", this.emoji);
+            "<br>emoji: " + this.emoji + "</html>";
     }
 
    

@@ -19,7 +19,7 @@ public class Ayah {
     @Override
     public String toString() {
         return "<html>" + text + "<br>translation: " + translation 
-        + "<br>location: " + location + "<br></html>";
+        + "<br>location: " + location;
     }
 
     

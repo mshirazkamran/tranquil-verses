@@ -24,7 +24,7 @@ public final class AyahForNeutral extends Ayah {
     @Override
     public String toString() {
         return super.toString() + 
-            String.format("hadith: %s%n", this.hadith);
+            String.format("<br>hadith: " + this.hadith + "<html>");
     }
 
     

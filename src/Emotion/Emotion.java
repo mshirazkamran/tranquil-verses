@@ -35,8 +35,5 @@ public final class Emotion {
     @Override
     public String toString() {
         return "Emotion [emotion=" + emotion + "]";
-    }
-
-    
-    
+    }   
 }

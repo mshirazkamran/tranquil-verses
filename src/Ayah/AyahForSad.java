@@ -2,11 +2,8 @@ package Ayah;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.lang.reflect.Array;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.List;
-
 import Utils.DataUtils;
 
 public final class AyahForSad extends Ayah {

@@ -44,7 +44,7 @@ public final class AyahForAngry extends Ayah {
             }
 
         } catch (Exception e) {
-            System.out.println("Error during reading the file: " + AyahForAngry.class);
+            System.out.println("Error during reading the file: " + filepath);
         }
 
         return ayahs;

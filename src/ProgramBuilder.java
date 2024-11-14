@@ -116,7 +116,7 @@ public class ProgramBuilder {
     private static int randNum() {
 
         Random random = new Random();
-        int num = random.nextInt(4);
+        int num = random.nextInt(5);
         return num;
     }
 

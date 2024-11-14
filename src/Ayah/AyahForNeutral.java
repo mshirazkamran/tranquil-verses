@@ -24,7 +24,8 @@ public final class AyahForNeutral extends Ayah {
     @Override
     public String toString() {
         return super.toString() + 
-            String.format("<br>hadith: " + this.hadith + "<html>");
+            "<br>Hadith: " + this.hadith + "</html>";
+
     }
 
     
@@ -44,7 +45,6 @@ public final class AyahForNeutral extends Ayah {
             for (int i = 0; i < data.size(); i++) {
                 String[] pieces = data.get(i).split(",");
                 ayahs.add(new AyahForNeutral(pieces[0], pieces[1], pieces[2]));   
-                System.out.println(ayahs.get(i));
             }
 
         } catch (Exception e) {

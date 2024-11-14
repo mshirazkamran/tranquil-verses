@@ -2,6 +2,7 @@ package Ayah;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.lang.reflect.Array;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +34,7 @@ public final class AyahForSad extends Ayah {
 
         try {
             BufferedReader reader = new BufferedReader(new FileReader(filepath, StandardCharsets.UTF_8));
-            List<String> data = new ArrayList<>();
+            ArrayList<String> data = new ArrayList<>();
             String line;
 
             while ((line = reader.readLine()) != null) {
@@ -43,7 +44,6 @@ public final class AyahForSad extends Ayah {
             for (int i = 0; i < data.size(); i++) {
                 String[] pieces = data.get(i).split(",");
                 ayahs.add(new AyahForSad(pieces[0], pieces[1], pieces[2]));   
-                System.out.println(ayahs.get(i));
             }
 
         } catch (Exception e) {

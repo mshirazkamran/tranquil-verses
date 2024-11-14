@@ -53,7 +53,7 @@ public class ProgramBuilder {
             """);
 
             Emotion emotion;
-            String input = scan.nextLine();
+            String input = scan.nextLine().toLowerCase();
 
             // exit the program
             if (input.equals("exit")) {
@@ -61,7 +61,7 @@ public class ProgramBuilder {
             }
 
             try {
-                emotion = new Emotion(input.toLowerCase());
+                emotion = new Emotion(input);
                 ProgramBuilder.GUIbuilder(emotion);
                 
             } catch (EmotionNotFoundException e) {

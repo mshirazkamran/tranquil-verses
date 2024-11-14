@@ -21,7 +21,7 @@ public final class AyahForAngry extends Ayah {
     @Override
     public String toString() {
         return super.toString() + 
-        String.format("tip: %s%n", this.tip);
+            "<br>Tip: " + this.tip + "</html>";
     }
 
 
@@ -41,7 +41,6 @@ public final class AyahForAngry extends Ayah {
             for (int i = 0; i < data.size(); i++) {
                 String[] pieces = data.get(i).split(",");
                 ayahs.add(new AyahForAngry(pieces[0], pieces[1], pieces[2]));   
-                System.out.println(ayahs.get(i));
             }
 
         } catch (Exception e) {

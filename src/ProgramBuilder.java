@@ -11,6 +11,8 @@ import Ayah.AyahForSad;
 import java.awt.Font;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -35,6 +37,13 @@ public class ProgramBuilder {
 
     public static void runProgram() throws InterruptedException {
 
+        final Map<String, String> mapOfEmotions = Map.of(
+            "1", "happy",
+            "2", "sad",
+            "3", "neutral",
+            "4", "angry"
+        );
+
         Scanner scan = new Scanner(System.in);
 
         System.out.println("\t\t\t\t\u001B[36m/////////////////////////\u001B[0m");
@@ -45,23 +54,23 @@ public class ProgramBuilder {
 
             System.out.println("""
             Please enter your mood: 
-                Happy
-                Sad
-                Neutral
-                Angry
-            (exit) to quit the program!
+                1. Happy
+                2. Sad
+                3. Neutral
+                4. Angry
+            0. (exit) to quit the program!
             """);
 
             Emotion emotion;
             String input = scan.nextLine().toLowerCase();
 
             // exit the program
-            if (input.equals("exit")) {
+            if (input.equals("exit") || input == "0") {
                 System.exit(1);
             }
 
             try {
-                emotion = new Emotion(input);
+                emotion = new Emotion(mapOfEmotions.get(input));
                 ProgramBuilder.GUIbuilder(emotion);
                 
             } catch (EmotionNotFoundException e) {
